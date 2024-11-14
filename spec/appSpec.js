@@ -9,6 +9,7 @@ describe("Berlin clock", () => {
         expect(main.lampSingleMinute(3)).toBe('YYY');
         expect(main.lampSingleMinute(5)).toBe('');
         expect(main.lampSingleMinute(17)).toBe('YY');
+        expect(main.lampSingleMinute(100)).toBe('');
     });
 
     it("should turn on a red light every 3 lights, the others being yellow in the 5-minute block line", function(){
@@ -16,12 +17,16 @@ describe("Berlin clock", () => {
         expect(main.lampBlockFiveMinute(10)).toBe('YY');
         expect(main.lampBlockFiveMinute(11)).toBe('YY');
         expect(main.lampBlockFiveMinute(50)).toBe('YYRYYRYYRY');
+        expect(main.lampBlockFiveMinute(100)).toBe('');
+
     });
     
     it("should turn on the red lights every hour in the simple hour line", function(){
         expect(main.lampSingleHour(1)).toBe('R');
         expect(main.lampSingleHour(3)).toBe('RRR');
         expect(main.lampSingleHour(17)).toBe('RR');
+        expect(main.lampSingleHour(100)).toBe('');
+
     });
 
     it("should light red lamps every 5 hours in the first line", function(){
@@ -29,6 +34,8 @@ describe("Berlin clock", () => {
         expect(main.lampBlockFiveHour(10)).toBe('RR');
         expect(main.lampBlockFiveHour(11)).toBe('RR');
         expect(main.lampBlockFiveHour(20)).toBe('RRRR');
+        expect(main.lampBlockFiveHour(30)).toBe('');
+
     });
 
     it("should light up red during even seconds and go out during odd seconds", function(){
@@ -37,6 +44,8 @@ describe("Berlin clock", () => {
         expect(main.lampSecond(3)).toBe('');
         expect(main.lampSecond(16)).toBe('R');
         expect(main.lampSecond(57)).toBe('');
+        expect(main.lampSecond(100)).toBe('');
+
     });
 
     it("should do all the above - full clock", function() {

@@ -1,7 +1,7 @@
 export class Main{
 
         lampSingleMinute(minute) {
-            return 'Y'.repeat(minute % 5);
+            return minute < 60 && minute >= 0  ? 'Y'.repeat(minute % 5) : '';
         }  
         
         lampBlockFiveMinute(minute){
@@ -11,19 +11,19 @@ export class Main{
                     result += 'R';
                 else result += 'Y';
             }
-            return result;
+            return minute < 60 && minute >= 0  ? result : '';
         }
 
         lampSingleHour(hour){
-            return 'R'.repeat(hour % 5);
+            return hour < 25 && hour >= 0  ? 'R'.repeat(hour % 5) : '';
         }
 
         lampBlockFiveHour(hour){
-            return 'R'.repeat(Math.floor(hour/5));
+            return hour < 25 && hour >= 0 ? 'R'.repeat(Math.floor(hour/5)) : '';
         }
 
         lampSecond(second){
-            return second % 2 == 0 ? 'R' : '';  
+            return (second % 2 == 0) && (second < 60 && second >= 0) ? 'R' : '';  
         }
 
         lampFullTime(hour, minute, second) {
