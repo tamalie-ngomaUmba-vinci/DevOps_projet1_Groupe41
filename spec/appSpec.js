@@ -24,7 +24,10 @@ describe("Berlin clock", () => {
     });
 
     it("should light red lamps every 5 hours in the first line", function(){
-     
+        expect(main.lampBlockFiveHour(5)).toBe('R');
+        expect(main.lampBlockFiveHour(10)).toBe('RR');
+        expect(main.lampBlockFiveHour(15)).toBe('RRR');
+        expect(main.lampBlockFiveHour(20)).toBe('RRRR');
     })
 
 
