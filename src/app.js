@@ -19,6 +19,10 @@ export class Main{
         }
 
         lampBlockFiveHour(hour){
-            return hour % 5 === 0 ? 'R'.repeat(hour/5) : '';
+            return 'R'.repeat(Math.floor(hour/5));
+        }
+
+        lampSecond(second){
+            return second % 2 == 0 ? 'R' : '';  
         }
 }
