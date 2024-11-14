@@ -11,10 +11,10 @@ describe("Berlin clock", () => {
     });
 
     it("should turn on a red light every 3 lights and the others are yellow", function(){
-        expect(main.lampBlockFiveMinute(5)).toBe('J');
-        expect(main.lampBlockFiveMinute(10)).toBe('JJ');
-        expect(main.lampBlockFiveMinute(15)).toBe('JJR');
-        expect(main.lampBlockFiveMinute(50)).toBe('JJRJJRJJRJ');
+        expect(main.lampBlockFiveMinute(5)).toBe('Y');
+        expect(main.lampBlockFiveMinute(10)).toBe('YY');
+        expect(main.lampBlockFiveMinute(15)).toBe('YYR');
+        expect(main.lampBlockFiveMinute(50)).toBe('YYRYYRYYRY');
     });
     
 
