@@ -29,7 +29,11 @@ describe("Berlin clock", () => {
         expect(main.lampBlockFiveHour(10)).toBe('RR');
         expect(main.lampBlockFiveHour(15)).toBe('RRR');
         expect(main.lampBlockFiveHour(20)).toBe('RRRR');
-    })
+    });
 
+    it("should light up red during even seconds and go out during odd seconds", function(){
+        expect(main.lampSecond(2)).toBe('R');
+        expect(main.lampSecond(1)).toBe('');
+    });
 
 });
