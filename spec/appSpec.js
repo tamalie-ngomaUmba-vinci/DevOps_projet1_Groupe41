@@ -4,7 +4,7 @@ const main = new Main();
 
 describe("Berlin clock", () => {
 
-    it("should light up yellow lamps every minute", function() {
+    it("should light up yellow lamps every single minute", function() {
         expect(main.lampSingleMinute(1)).toBe('Y');
         expect(main.lampSingleMinute(3)).toBe('YYY');
         expect(main.lampSingleMinute(17)).toBe('YY');
@@ -17,5 +17,10 @@ describe("Berlin clock", () => {
         expect(main.lampBlockFiveMinute(50)).toBe('YYRYYRYYRY');
     });
     
+    it("should turn on red lights every single hour", function(){
+        expect(main.lampSingleHour(1)).toBe('R');
+        expect(main.lampSingleHour(3)).toBe('R');
+        expect(main.lampSingleHour(17)).toBe('RRR');
+    });
 
 });
