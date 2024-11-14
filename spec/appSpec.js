@@ -39,25 +39,53 @@ describe("Berlin clock", () => {
         expect(main.lampSecond(57)).toBe('');
     });
 
-    it("should do all the above", function() {
+    it("should do all the above - full clock", function() {
 
-        // seconds
-        expect(main.lampFullTime(0,0,0)).toBe(['R','','','','']);
-        expect(main.lampFullTime(0,0,2)).toBe(['R','','','','']);
-        expect(main.lampFullTime(0,0,4)).toBe(['R','','','','']);
-        expect(main.lampFullTime(0,0,18)).toBe(['R','','','','']);
-        expect(main.lampFullTime(0,0,56)).toBe(['R','','','','']);
+        // lampSecond
+        expect(main.lampFullTime(0,0,0))[0].toBe('R');
+        expect(main.lampFullTime(0,0,2))[0].toBe('R');
+        expect(main.lampFullTime(0,0,4))[0].toBe('R');
+        expect(main.lampFullTime(0,0,18))[0].toBe('R');
+        expect(main.lampFullTime(0,0,56))[0].toBe('R');
 
-        expect(main.lampFullTime(0,0,1)).toBe(['','','','','']);
-        expect(main.lampFullTime(0,0,3)).toBe(['','','','','']);
-        expect(main.lampFullTime(0,0,15)).toBe(['','','','','']);
-        expect(main.lampFullTime(0,0,39)).toBe(['','','','','']);
-        expect(main.lampFullTime(0,0,59)).toBe(['','','','','']);
+        expect(main.lampFullTime(0,0,1))[0].toBe('');
+        expect(main.lampFullTime(0,0,3))[0].toBe('');
+        expect(main.lampFullTime(0,0,15))[0].toBe('');
+        expect(main.lampFullTime(0,0,39))[0].toBe('');
+        expect(main.lampFullTime(0,0,59))[0].toBe('');
         
 
-        // minutes
-        expect(main.lampFullTime(0,3,0)).toBe(['R','','','','YYY']);
-        expect(main.lampFullTime(0,5,0)).
+        // lampBlockFiveHour
+        expect(main.lampFullTime(0,0,0))[1].toBe('');
+        expect(main.lampFullTime(1,0,0))[1].toBe('');       
+        expect(main.lampFullTime(5,0,0))[1].toBe('R');
+        expect(main.lampFullTime(8,0,0))[1].toBe('R');        
+        expect(main.lampFullTime(10,0,0))[1].toBe('RR');
+        expect(main.lampFullTime(11,0,0))[1].toBe('RR');
+        expect(main.lampFullTime(21,0,0))[1].toBe('RRRR');
+        expect(main.lampFullTime(23,0,0))[1].toBe('RRRR');
+
+        // lampSingleHour
+        expect(main.lampFullTime(0,0,0))[2].toBe('');
+        expect(main.lampFullTime(1,0,0))[2].toBe('R');       
+        expect(main.lampFullTime(5,0,0))[2].toBe('R');
+        expect(main.lampFullTime(8,0,0))[2].toBe('RRR');        
+        expect(main.lampFullTime(10,0,0))[2].toBe('');
+        expect(main.lampFullTime(11,0,0))[2].toBe('R');
+        expect(main.lampFullTime(21,0,0))[2].toBe('R');
+        expect(main.lampFullTime(23,0,0))[2].toBe('RRR');
+
+        // lampBlockFiveMinute
+        expect(main.lampFullTime(0,5,0))[3].toBe('Y');
+        expect(main.lampFullTime(0,10,0))[3].toBe('YY');
+        expect(main.lampFullTime(0,11,0))[3].toBe('YY');
+        expect(main.lampFullTime(0,50,0))[3].toBe('YYRYYRYYRY');
+
+        // lampSingleMinute
+        expect(main.lampFullTime(0,1,0))[4].toBe('Y');
+        expect(main.lampFullTime(0,3,0))[4].toBe('YYY');
+        expect(main.lampFullTime(0,5,0))[4].toBe('');
+        expect(main.lampFullTime(0,17,0))[4].toBe('YY');
 
     })
 
