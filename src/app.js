@@ -1,9 +1,10 @@
 export class Main{
 
-        lampeMinuteSimple(minute) {
-            let lampe = minute % 5
-            return 'J'.repeat(lampe);
+        lampSingleMinute(minute) {
+            let lamp = minute % 5
+            return 'Y'.repeat(lamp);
         }
-
+        
+        
 
 }
