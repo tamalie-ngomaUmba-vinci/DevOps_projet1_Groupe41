@@ -1,6 +1,10 @@
 # DevOps_projet1_Groupe41
 Groupe 41 : Berlin Clock Kata
 
+Joshua Basele Eko Bofasa
+Tamalie Succès Ngoma Umba
+
+Enoncé du projet :
 Il s’agit d’une série d’ampoules qui ont deux états possibles : allumé ou éteint.
 La grosse ampoule ronde du dessus est allumée les secondes paires et éteinte les secondes impaire.
 Les deux lignes suivantes représentent les heures. La première ligne représente des blocs de 5 heures et est composée de 4 lampes rouges. La deuxième ligne représente des blocs de 1heure et est composée de 4 lampes rouges.
