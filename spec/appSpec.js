@@ -7,6 +7,7 @@ describe("Berlin clock", () => {
     it("should light up yellow lamps every minute in the last line", function() {
         expect(main.lampSingleMinute(1)).toBe('Y');
         expect(main.lampSingleMinute(3)).toBe('YYY');
+        expect(main.lampSingleMinute(5)).toBe('');
         expect(main.lampSingleMinute(17)).toBe('YY');
     });
 
