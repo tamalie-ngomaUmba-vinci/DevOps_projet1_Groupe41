@@ -34,6 +34,31 @@ describe("Berlin clock", () => {
     it("should light up red during even seconds and go out during odd seconds", function(){
         expect(main.lampSecond(2)).toBe('R');
         expect(main.lampSecond(1)).toBe('');
+        expect(main.lampSecond(3)).toBe('');
+        expect(main.lampSecond(16)).toBe('R');
+        expect(main.lampSecond(57)).toBe('');
     });
+
+    it("should do all the above", function() {
+
+        // seconds
+        expect(main.lampFullTime(0,0,0)).toBe(['R','','','','']);
+        expect(main.lampFullTime(0,0,2)).toBe(['R','','','','']);
+        expect(main.lampFullTime(0,0,4)).toBe(['R','','','','']);
+        expect(main.lampFullTime(0,0,18)).toBe(['R','','','','']);
+        expect(main.lampFullTime(0,0,56)).toBe(['R','','','','']);
+
+        expect(main.lampFullTime(0,0,1)).toBe(['','','','','']);
+        expect(main.lampFullTime(0,0,3)).toBe(['','','','','']);
+        expect(main.lampFullTime(0,0,15)).toBe(['','','','','']);
+        expect(main.lampFullTime(0,0,39)).toBe(['','','','','']);
+        expect(main.lampFullTime(0,0,59)).toBe(['','','','','']);
+        
+
+        // minutes
+        expect(main.lampFullTime(0,3,0)).toBe(['R','','','','YYY']);
+        expect(main.lampFullTime(0,5,0)).
+
+    })
 
 });

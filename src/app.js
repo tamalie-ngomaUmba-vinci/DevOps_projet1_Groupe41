@@ -25,4 +25,21 @@ export class Main{
         lampSecond(second){
             return second % 2 == 0 ? 'R' : '';  
         }
+
+        lampFullTime(hour, minute, second) {
+
+            // 0: lampSecond            1:lampBlockFiveHour    2:lampSingleHour 
+            // 3:lampBlockFiveMinute    4:lampSingleMinute
+
+            let berlinHourValues = [this.lampSecond(second), 
+                                    this.lampBlockFiveHour(hour), 
+                                    this.lampSingleHour(hour), 
+                                    this.lampBlockFiveMinute(minute), 
+                                    this.lampSingleMinute(minute)   ];
+                 
+            
+           
+            return berlinHourValues;               
+
+        }
 }
